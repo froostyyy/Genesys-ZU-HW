@@ -201,9 +201,9 @@ set_property DCI_CASCADE {64} [get_iobanks 65]
 
 
 ## Platform MCU signals
-#set_property PACKAGE_PIN AC14 [get_ports {vadj_level_0}];     #IO_L6P_HDGC_44/24 Sch=vadj_level[0]
-#set_property PACKAGE_PIN AC13 [get_ports {vadj_level_1}];     #IO_L6N_HDGC_44/24 Sch=vadj_level[1]
-#set_property PACKAGE_PIN G10 [get_ports {vadj_auton}];      #IO_L3N_AD13N_45/25 Sch=vadj_auton
+set_property -dict {PACKAGE_PIN AC14 IOSTANDARD LVCMOS33 SLEW SLOW DRIVE 4 } [get_ports {o_lvl_adj0_0}];     #IO_L6P_HDGC_44/24 Sch=vadj_level[0]
+set_property -dict {PACKAGE_PIN AC13 IOSTANDARD LVCMOS33 SLEW SLOW DRIVE 4 } [get_ports {o_lvl_adj1_0}];     #IO_L6N_HDGC_44/24 Sch=vadj_level[1]
+set_property -dict {PACKAGE_PIN G10 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {o_auto_vadj_0}];      #IO_L3N_AD13N_45/25 Sch=vadj_auton
 #set_property PACKAGE_PIN H11 [get_ports {mcu_tri_io[3]}];      #IO_L3P_AD13P_45/25 Sch=syzygy_detectedn
 #set_property -dict { PACKAGE_PIN AA12  IOSTANDARD LVCMOS33 } [get_ports { PG_VADJ_R }]; #IO_L12N_AD8N_44/24 Sch=pg_vadj_r
 
@@ -289,11 +289,11 @@ set_property IOSTANDARD LVCMOS18 [get_ports dp_aux_hotplug_detect]
 #set_property -dict { PACKAGE_PIN AB15  IOSTANDARD LVCMOS33 } [get_ports { pl_switches_tri_i[0] }]; #IO_L8P_HDGC_44/24 Sch=sw[0]
 #set_property -dict { PACKAGE_PIN W12   IOSTANDARD LVCMOS33 } [get_ports { pl_switches_tri_i[1] }]; #IO_L11P_AD9P_44/24 Sch=sw[1]
 #set_property -dict { PACKAGE_PIN Y13   IOSTANDARD LVCMOS33 } [get_ports { pl_switches_tri_i[2] }]; #IO_L10N_AD10N_44/24 Sch=sw[2]
-#set_property -dict { PACKAGE_PIN AB14  IOSTANDARD LVCMOS33 } [get_ports { pl_switches_tri_i[3] }]; #IO_L8N_HDGC_44/24 Sch=sw[3]
+#set_property -dict { PACKAGE_PIN AB14  IOSTANDARD LVCMOS33 } [get_ports { btn_rstn_0 }]; #IO_L8N_HDGC_44/24 Sch=sw[3]
 
 ## LED
-#set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports { pl_leds_tri_o[0] }]; #IO_L11N_AD1N_46/26 Sch=ld[1]
-#set_property -dict { PACKAGE_PIN K14   IOSTANDARD LVCMOS33 } [get_ports { pl_leds_tri_o[1] }]; #IO_L11P_AD1P_46/26 Sch=ld[2]
+set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports { sConfigError_0 }]; #IO_L11N_AD1N_46/26 Sch=ld[1]
+set_property -dict { PACKAGE_PIN K14   IOSTANDARD LVCMOS33 } [get_ports { sInitDoneDAC_0 }]; #IO_L11P_AD1P_46/26 Sch=ld[2]
 #set_property -dict { PACKAGE_PIN L13   IOSTANDARD LVCMOS33 } [get_ports { pl_leds_tri_o[2] }]; #IO_L12N_AD0N_46/26 Sch=ld[3]
 #set_property -dict { PACKAGE_PIN L14   IOSTANDARD LVCMOS33 } [get_ports { pl_leds_tri_o[3] }]; #IO_L12P_AD0P_46/26 Sch=ld[4]
 
@@ -320,27 +320,29 @@ set_property IOSTANDARD LVCMOS18 [get_ports dp_aux_hotplug_detect]
 #set_property DRIVE 4 [get_ports mux_sda_io]
 
 ## SYZYGY
-        #set_property PACKAGE_PIN AB1 [get_ports {SYZYGY_D_P[0]}]
-        #set_property PACKAGE_PIN AE3 [get_ports {SYZYGY_D_P[2]}]
+set_property -dict { PACKAGE_PIN AB1 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {sZmodDAC_SetFS1_0}]; #5
+set_property -dict { PACKAGE_PIN AE3 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {sZmodDAC_Reset_0}]; #9
+set_property -dict { PACKAGE_PIN AC1 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 }  [get_ports {sZmodDAC_SetFS2_0}];#7
         
-#set_property PACKAGE_PIN AE2 [get_ports {syzygy_1_tri_io[0]}];#6
-#set_property PACKAGE_PIN AF2 [get_ports {syzygy_2_tri_io[0]}];#8
-#set_property PACKAGE_PIN AE5 [get_ports {syzygy_1_tri_io[1]}];#10
-#set_property PACKAGE_PIN AF5 [get_ports {syzygy_2_tri_io[1]}];#12   
-#set_property PACKAGE_PIN AD7 [get_ports {syzygy_1_tri_io[2]}];#13
-#set_property PACKAGE_PIN AE7 [get_ports {syzygy_2_tri_io[2]}];#15
-#set_property PACKAGE_PIN AG6 [get_ports {syzygy_1_tri_io[3]}];#14
-#set_property PACKAGE_PIN AG5 [get_ports {syzygy_2_tri_io[3]}];#16
-#set_property PACKAGE_PIN U8  [get_ports {syzygy_1_tri_io[4]}];#17
-#set_property PACKAGE_PIN V8  [get_ports {syzygy_2_tri_io[4]}];#19
-#set_property PACKAGE_PIN U9  [get_ports {syzygy_1_tri_io[5]}];#18
-#set_property PACKAGE_PIN V9  [get_ports {syzygy_2_tri_io[5]}];#20
+set_property -dict { PACKAGE_PIN AE2 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {dZmodDAC_Data_0[13]}];#6
+set_property -dict { PACKAGE_PIN AF2 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {dZmodDAC_Data_0[12]}];#8
+set_property -dict { PACKAGE_PIN AE5 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {dZmodDAC_Data_0[11]}];#10
+set_property -dict { PACKAGE_PIN AF5 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {dZmodDAC_Data_0[10]}];#12   
+set_property -dict { PACKAGE_PIN AD7 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {sZmodDAC_SDIO_0}];#13
+set_property -dict { PACKAGE_PIN AE7 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {sZmodDAC_CS_0}];#15
+set_property -dict { PACKAGE_PIN AG6 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {dZmodDAC_Data_0[9]}];#14
+set_property -dict { PACKAGE_PIN AG5 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports {dZmodDAC_Data_0[8]}];#16
+set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 }  [get_ports {sZmodDAC_EnOut_0}];#17
+set_property -dict { PACKAGE_PIN V8 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 }  [get_ports {dZmodDAC_Data_0[2]}];#19
+set_property -dict { PACKAGE_PIN U9 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 }  [get_ports {dZmodDAC_Data_0[7]}];#18
+set_property -dict { PACKAGE_PIN V9 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 }  [get_ports {dZmodDAC_Data_0[6]}];#20
+set_property -dict { PACKAGE_PIN AF3 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 }  [get_ports {sZmodDAC_SCLK_0}];#11
 
-#set_property -dict { PACKAGE_PIN AE10 } [get_ports { syzygy_1_tri_io[6]}]; #IO_L4P_AD8P_43/44 Sch=syzygy_s[16] 21
-#set_property -dict { PACKAGE_PIN AF10 } [get_ports { syzygy_2_tri_io[6]}]; #IO_L4N_AD8N_43/44 Sch=syzygy_s[18] 23
-#set_property -dict { PACKAGE_PIN AC12 } [get_ports { syzygy_1_tri_io[7]}]; #IO_L6P_HDGC_AD6P_43/44 Sch=syzygy_s[17] 22
-#set_property -dict { PACKAGE_PIN AD12 } [get_ports { syzygy_2_tri_io[7]}]; #IO_L6N_HDGC_AD6N_43/44 Sch=syzygy_s[19] 24
-#set_property -dict { PACKAGE_PIN AF11 } [get_ports { syzygy_1_tri_io[8]}]; #IO_L2P_AD10P_43/44 Sch=syzygy_s[20]     25
+set_property -dict { PACKAGE_PIN AE10 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports { dZmodDAC_Data_0[4]}]; #IO_L4P_AD8P_43/44 Sch=syzygy_s[16] 21
+set_property -dict { PACKAGE_PIN AF10 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports { dZmodDAC_Data_0[1]}]; #IO_L4N_AD8N_43/44 Sch=syzygy_s[18] 23
+set_property -dict { PACKAGE_PIN AC12 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports { dZmodDAC_Data_0[5]}]; #IO_L6P_HDGC_AD6P_43/44 Sch=syzygy_s[17] 22
+set_property -dict { PACKAGE_PIN AD12 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports { dZmodDAC_Data_0[0]}]; #IO_L6N_HDGC_AD6N_43/44 Sch=syzygy_s[19] 24
+set_property -dict { PACKAGE_PIN AF11 IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports { dZmodDAC_Data_0[3]}]; #IO_L2P_AD10P_43/44 Sch=syzygy_s[20]     25
 #set_property -dict { PACKAGE_PIN AF12 } [get_ports { syzygy_2_tri_io[8]}]; #IO_L5N_HDGC_AD7N_43/44 Sch=syzygy_s[22] 27
 #set_property -dict { PACKAGE_PIN AE12 } [get_ports { syzygy_1_tri_io[9]}]; #IO_L5P_HDGC_AD7P_43/44 Sch=syzygy_s[21]    26
 #set_property -dict { PACKAGE_PIN AH12 } [get_ports { syzygy_2_tri_io[9]}]; #IO_L3P_AD9P_43/44 Sch=syzygy_s[23]      28
@@ -349,16 +351,15 @@ set_property IOSTANDARD LVCMOS18 [get_ports dp_aux_hotplug_detect]
 #set_property -dict { PACKAGE_PIN AG10 } [get_ports { syzygy_1_tri_io[11]}]; #IO_L1P_AD11P_43/44 Sch=syzygy_s[25] 30
 #set_property -dict { PACKAGE_PIN AH10 } [get_ports { syzygy_2_tri_io[11]}]; #IO_L1N_AD11N_43/44 Sch=syzygy_s[27] 32
 
-#set_property IOSTANDARD LVCMOS18 [get_ports {syzygy_?_tri_io[*]}];
-#set_property SLEW SLOW [get_ports {syzygy_?_tri_io[*]}];
-#set_property DRIVE 4 [get_ports {syzygy_?_tri_io[*]}];
-#set_property PULLUP true [get_ports {syzygy_?_tri_io[*]}];
-
-
 #set_property -dict { PACKAGE_PIN AD4   IOSTANDARD LVDS   DIFF_TERM_ADV TERM_100  } [get_ports { SYZYGY_IN_clk_n[0] }]; #IO_L13N_T2L_N1_GC_QBC_64 Sch=syzygy_in_clk_n
-#set_property -dict { PACKAGE_PIN AD5   IOSTANDARD LVDS   DIFF_TERM_ADV TERM_100  } [get_ports { SYZYGY_IN_clk_p[0] }]; #IO_L13P_T2L_N0_GC_QBC_64 Sch=syzygy_in_clk_p
+set_property -dict { PACKAGE_PIN AD5   IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports { ZmodDAC_ClkIO_0 }]; #IO_L13P_T2L_N0_GC_QBC_64 Sch=syzygy_in_clk_p
 #set_property -dict { PACKAGE_PIN Y8    IOSTANDARD LVDS     } [get_ports { SYZYGY_OUT_CLK_N[0] }]; #IO_L1N_T0L_N1_DBC_65 Sch=syzygy_out_clk_n
-#set_property -dict { PACKAGE_PIN W8    IOSTANDARD LVDS     } [get_ports { SYZYGY_OUT_CLK_P[0] }]; #IO_L1P_T0L_N0_DBC_65 Sch=syzygy_out_clk_p
+set_property -dict { PACKAGE_PIN W8    IOSTANDARD LVCMOS18 SLEW SLOW DRIVE 4 } [get_ports { ZmodDAC_ClkIn_0 }]; #IO_L1P_T0L_N0_DBC_65 Sch=syzygy_out_clk_p
+
+#set_property IOSTANDARD LVCMOS18 [get_ports {sZmodDAC_*}];
+#set_property SLEW SLOW [get_ports {sZmodDAC_*}];
+#set_property DRIVE 4 [get_ports {sZmodDAC_*}];
+#set_property PULLUP true [get_ports {syzygy_?_tri_io[*]}];
 
 
 ## FMC connector
