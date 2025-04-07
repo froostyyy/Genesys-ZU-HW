@@ -22,7 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
-<part_info part_name="xczu5ev-sfvc784-1-e">
+<part_info part_name="xczu3eg-sfvc784-1-e">
 <pins>
 	<pin index="0" name="btn_5bits_tri_i_0" iostandard="LVCMOS18" loc="A12"/> <!-- Sch=BTNR -->
     <pin index="1" name="btn_5bits_tri_i_1" iostandard="LVCMOS18" loc="F12"/> <!-- Sch=BTNL -->
