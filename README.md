@@ -1,11 +1,11 @@
-# Genesys-ZU Hardware Repository
+# Genesys ZU-3EG Hardware Repository
 
-This repository contains Vivado projects for all demos for the Genesys-ZU.
+## Genesys ZU-3EG Out-of-Box Demo
 
-For more information about the Genesys-ZU, visit its [Resource Center](https://reference.digilentinc.com/programmable-logic/genesys-zu/start) on the Digilent Wiki.
+For more information on the Genesys ZU-3EG, see its [Resource Center](https://reference.digilentinc.com/programmable-logic/genesys-zu/start) on the Digilent Wiki.
 
-## Repository Description
+For more information on the Genesys ZU-3EG OOB Demo, including setup instructions, visit its [Demo Page](https://reference.digilentinc.com/programmable-logic/genesys-zu/getting-started) on the Digilent Wiki.
 
-This repository contains the Vivado projects and hardware designs for all of the demos that we provide for the Genesys-ZU. As some demos also require software sources contained in Vitis workspaces, this repository should not be used directly. The [Genesys-ZU](https://github.com/Digilent/Genesys-ZU) repository contains all sources for these demos across all tools, and pulls in all of this repository's sources by using it as a submodule.
+For instructions on how to use this repository with git, and for additional documentation on the submodule and branch structures used, please visit [Digilent FPGA Demo Git Repositories](https://reference.digilentinc.com/reference/programmable-logic/documents/git) on the Digilent Wiki. Note that use of git is not required to use this demo. Digilent recommends the use of project releases, for which instructions can be found in the demo wiki page, linked above.
 
-For instructions on how to use this repository with git, and for additional documentation on the submodule and branch structures used, please visit [Digilent FPGA Demo Git Repositories](https://reference.digilentinc.com/reference/programmable-logic/documents/git) on the Digilent Wiki. Note that use of git is not required to use this demo.
+Note: If using git, as this demo requires sources for tools other than Vivado, which are provided in other repos, it is recommended to get these sources through the corresponding branch of the  Genesys ZU repository, which uses submodules to bring in sources for all tools used by this demo. This is described in the Digilent FPGA Demo Git Repositories page, linked above.
